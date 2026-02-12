@@ -6,12 +6,12 @@ body {
     color: white;
 }
 
-/* Background image GTA */
+/* Background image intégrée */
 .background {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-image: url("gta-bg.jpg");
+    background-image: url("https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1920&q=80");
     background-size: cover;
     background-position: center;
     filter: brightness(0.5);
@@ -110,3 +110,4 @@ button:hover {
     height: 100%;
     padding-top: 200px;
 }
+
