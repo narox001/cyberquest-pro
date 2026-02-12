@@ -6,15 +6,36 @@ body {
     color: white;
 }
 
-/* Background image intégrée */
+/* 🔥 VRAI FOND STYLE GTA (intégré + effet néon) */
 .background {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-image: url("https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1920&q=80");
+
+    /* Image intégrée en ligne */
+    background-image: url("https://picsum.photos/1920/1080?blur=2");
+
     background-size: cover;
     background-position: center;
-    filter: brightness(0.5);
+
+    /* Effet sombre */
+    filter: brightness(0.4) contrast(1.2);
+
+    z-index: -2;
+}
+
+/* Overlay néon GTA */
+.background::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: radial-gradient(circle at 50% 70%,
+        rgba(255,0,150,0.4),
+        rgba(0,255,255,0.3),
+        transparent 70%);
+
     z-index: -1;
 }
 
@@ -110,4 +131,3 @@ button:hover {
     height: 100%;
     padding-top: 200px;
 }
-
