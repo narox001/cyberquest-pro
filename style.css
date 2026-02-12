@@ -1,24 +1,40 @@
-body {
-    background: black;
-    color: cyan;
-    text-align: center;
-    font-family: Arial;
-    padding-top: 100px;
+let selectedCharacter = null;
+
+function startLoading() {
+    document.getElementById("intro").classList.add("hidden");
+    document.getElementById("loading").classList.remove("hidden");
+
+    let progress = document.querySelector(".progress");
+    let width = 0;
+
+    let interval = setInterval(() => {
+        width += 4;
+        progress.style.width = width + "%";
+
+        if (width >= 100) {
+            clearInterval(interval);
+            document.getElementById("loading").classList.add("hidden");
+            document.getElementById("menu").classList.remove("hidden");
+        }
+    }, 120);
 }
 
-h1 {
-    font-size: 50px;
+function selectCharacter(element) {
+    document.querySelectorAll(".character").forEach(char => {
+        char.classList.remove("selected");
+    });
+
+    element.classList.add("selected");
+    selectedCharacter = element.textContent;
 }
 
-button {
-    padding: 15px 30px;
-    font-size: 20px;
-    cursor: pointer;
-    background: cyan;
-    border: none;
-    border-radius: 10px;
-}
+function playGame() {
+    if (!selectedCharacter) {
+        document.getElementById("errorMessage").textContent =
+            "⚠️ Sélectionne un personnage.";
+        return;
+    }
 
-button:hover {
-    background: white;
+    document.getElementById("menu").classList.add("hidden");
+    document.getElementById("crash").classList.remove("hidden");
 }
