@@ -1,20 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Cyber Quest</title>
+    <meta charset="UTF-8">
+    <title>GTA VI - Online</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>CYBER QUEST</h1>
+    <div class="background"></div>
 
-<button id="playBtn">JOUER</button>
+    <!-- INTRO -->
+    <div id="intro">
+        <h1 class="logo">GRAND THEFT AUTO VI</h1>
+        <button onclick="startLoading()">ENTRER</button>
+    </div>
 
-<div id="errorMessage" style="display:none; color:red;">
-❌ ERREUR FATALE — Impossible de lancer le serveur.
-</div>
+    <!-- LOADING -->
+    <div id="loading" class="hidden">
+        <h2>Connexion sécurisée aux serveurs Rockstar...</h2>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
 
-<script src="script.js"></script>
+    <!-- MENU -->
+    <div id="menu" class="hidden">
+        <h1>GTA VI ONLINE</h1>
 
+        <div class="character-select">
+            <h2>Sélection du personnage</h2>
+            <div class="characters">
+                <div class="character" onclick="selectCharacter(this)">🕶️</div>
+                <div class="character" onclick="selectCharacter(this)">👩‍🦰</div>
+                <div class="character" onclick="selectCharacter(this)">👨🏾</div>
+            </div>
+        </div>
+
+        <button onclick="playGame()">JOUER</button>
+        <p id="errorMessage"></p>
+    </div>
+
+    <!-- FAUX CRASH -->
+    <div id="crash" class="hidden">
+        <h1>ERREUR SYSTÈME</h1>
+        <p>Impossible d’établir une connexion sécurisée.</p>
+        <p>Code erreur : R*X-7842-FAIL</p>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
