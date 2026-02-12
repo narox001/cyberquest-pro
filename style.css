@@ -1,0 +1,24 @@
+body {
+    background: black;
+    color: cyan;
+    text-align: center;
+    font-family: Arial;
+    padding-top: 100px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    background: cyan;
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover {
+    background: white;
+}
