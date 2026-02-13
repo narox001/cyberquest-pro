@@ -2,54 +2,48 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>GTA VI - Online</title>
+    <title>Cyber Quest</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="background"></div>
+<div class="container">
+    <h1>CYBER QUEST</h1>
 
-    <!-- INTRO -->
-    <div id="intro">
-        <h1 class="logo">GRAND THEFT AUTO VI</h1>
-        <button onclick="startLoading()">ENTRER</button>
-    </div>
+    <div class="card">
+        <h2>Création du personnage</h2>
 
-    <!-- LOADING -->
-    <div id="loading" class="hidden">
-        <h2>Connexion sécurisée aux serveurs Rockstar...</h2>
-        <div class="progress-bar">
-            <div class="progress"></div>
+        <input type="text" id="nameInput" placeholder="Nom du personnage">
+
+        <select id="classSelect">
+            <option>Soldat Neural</option>
+            <option>Hacker Fantôme</option>
+            <option>Assassin Cyber</option>
+            <option>Mage Quantique</option>
+        </select>
+
+        <label>Force</label>
+        <input type="range" min="1" max="100" value="50" id="force">
+
+        <label>Agilité</label>
+        <input type="range" min="1" max="100" value="50" id="agility">
+
+        <label>Intelligence</label>
+        <input type="range" min="1" max="100" value="50" id="intelligence">
+
+        <p id="statsDisplay"></p>
+
+        <button id="saveBtn">SAUVEGARDER</button>
+        <button id="playBtn">JOUER</button>
+
+        <div id="errorMessage">
+            ❌ ERREUR FATALE — Impossible de lancer le serveur.
         </div>
     </div>
+</div>
 
-    <!-- MENU -->
-    <div id="menu" class="hidden">
-        <h1>GTA VI ONLINE</h1>
+<script src="script.js"></script>
 
-        <div class="character-select">
-            <h2>Sélection du personnage</h2>
-            <div class="characters">
-                <div class="character" onclick="selectCharacter(this)">🕶️</div>
-                <div class="character" onclick="selectCharacter(this)">👩‍🦰</div>
-                <div class="character" onclick="selectCharacter(this)">👨🏾</div>
-            </div>
-        </div>
-
-        <button onclick="playGame()">JOUER</button>
-        <p id="errorMessage"></p>
-    </div>
-
-    <!-- FAUX CRASH -->
-    <div id="crash" class="hidden">
-        <h1>ERREUR SYSTÈME</h1>
-        <p>Impossible d’établir une connexion sécurisée.</p>
-        <p>Code erreur : R*X-7842-FAIL</p>
-    </div>
-
-    <script src="script.js"></script>
 </body>
-<script src="./script.js"></script>
-
-
+</html>
 
