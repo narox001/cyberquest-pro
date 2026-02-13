@@ -1,40 +1,43 @@
-let selectedCharacter = null;
+const nameInput = document.getElementById("nameInput");
+const classSelect = document.getElementById("classSelect");
+const force = document.getElementById("force");
+const agility = document.getElementById("agility");
+const intelligence = document.getElementById("intelligence");
+const statsDisplay = document.getElementById("statsDisplay");
+const saveBtn = document.getElementById("saveBtn");
+const playBtn = document.getElementById("playBtn");
+const errorMessage = document.getElementById("errorMessage");
 
-function startLoading() {
-    document.getElementById("intro").classList.add("hidden");
-    document.getElementById("loading").classList.remove("hidden");
-
-    let progress = document.querySelector(".progress");
-    let width = 0;
-
-    let interval = setInterval(() => {
-        width += 4;
-        progress.style.width = width + "%";
-
-        if (width >= 100) {
-            clearInterval(interval);
-            document.getElementById("loading").classList.add("hidden");
-            document.getElementById("menu").classList.remove("hidden");
-        }
-    }, 120);
+// Mise à jour des stats
+function updateStats() {
+    statsDisplay.innerHTML =
+        "Force: " + force.value +
+        " | Agilité: " + agility.value +
+        " | Intelligence: " + intelligence.value;
 }
 
-function selectCharacter(element) {
-    document.querySelectorAll(".character").forEach(char => {
-        char.classList.remove("selected");
-    });
+force.addEventListener("input", updateStats);
+agility.addEventListener("input", updateStats);
+intelligence.addEventListener("input", updateStats);
 
-    element.classList.add("selected");
-    selectedCharacter = element.textContent;
-}
+updateStats();
 
-function playGame() {
-    if (!selectedCharacter) {
-        document.getElementById("errorMessage").textContent =
-            "⚠️ Sélectionne un personnage.";
-        return;
-    }
+// Sauvegarde
+saveBtn.addEventListener("click", () => {
+    const character = {
+        name: nameInput.value,
+        class: classSelect.value,
+        force: force.value,
+        agility: agility.value,
+        intelligence: intelligence.value
+    };
 
-    document.getElementById("menu").classList.add("hidden");
-    document.getElementById("crash").classList.remove("hidden");
-}
+    localStorage.setItem("cyberCharacter", JSON.stringify(character));
+    alert("Personnage sauvegardé !");
+});
+
+// Bouton jouer → erreur
+playBtn.addEventListener("click", () => {
+    errorMessage.style.display = "block";
+});
+
